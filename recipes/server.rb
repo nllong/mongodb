@@ -7,9 +7,14 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe "iptables::mongodb"
 include_recipe "yum::10gen"
+include_recipe "mongodb::client"
 
-package "mongo-10gen-server"
+package "mongo-10gen-server" do
+  version node[:mongodb][:server][:version]
+  notifies :restart, "service[mongodb]"
+end
 
 directory node[:mongodb][:server][:db_dir] do
   owner "mongod"
@@ -41,6 +46,6 @@ service "mongodb" do
     service_name "mongod"
   end
 
-  supports :status => true, :restart => true, :reload => true
+  supports :status => true, :restart => true
   action [:enable, :start]
 end
