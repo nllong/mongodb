@@ -1,0 +1,3 @@
+BACKUPDIR="<%= node[:mongodb][:backup][:dir] %>"
+OPLOG="<%= if(node[:mongodb][:backup][:oplog]) then "yes" else "no" end %>"
+REPLICAONSLAVE="<%= if(node[:mongodb][:backup][:replica_on_slave]) then "yes" else "no" end %>"
