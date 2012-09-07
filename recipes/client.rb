@@ -10,5 +10,4 @@
 include_recipe "yum::10gen"
 
 package "mongo-10gen" do
-  version node[:mongodb][:client][:version]
 end

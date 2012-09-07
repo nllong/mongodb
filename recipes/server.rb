@@ -12,7 +12,6 @@ include_recipe "yum::10gen"
 include_recipe "mongodb::client"
 
 package "mongo-10gen-server" do
-  version node[:mongodb][:server][:version]
   notifies :restart, "service[mongodb]"
 end
 

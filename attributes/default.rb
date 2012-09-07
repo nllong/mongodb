@@ -7,9 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-default[:mongodb][:client][:version] = "2.0.1-mongodb_1"
-default[:mongodb][:server][:version] = "2.0.1-mongodb_1"
-
 if platform?("redhat", "centos", "fedora")
   default[:mongodb][:server][:config_file] = "/etc/mongod.conf"
   default[:mongodb][:server][:log_file] = "/var/log/mongo/mongod.log"
