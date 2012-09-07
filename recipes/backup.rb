@@ -7,6 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe "cron"
 
 if platform?("redhat", "centos", "fedora")
   template "/etc/sysconfig/automongobackup" do
