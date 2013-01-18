@@ -9,6 +9,11 @@
 
 include_recipe "cron"
 
+# Setting MAILCONTENT=quiet doesn't seem to currently work:
+# https://github.com/micahwedemeyer/automongobackup/issues/17
+# For now use cronic to prevent chatty output.
+include_recipe "cron::cronic"
+
 if platform?("redhat", "centos", "fedora")
   template "/etc/sysconfig/automongobackup" do
     source "automongobackup_sysconfig.erb"
