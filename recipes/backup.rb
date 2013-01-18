@@ -18,8 +18,8 @@ if platform?("redhat", "centos", "fedora")
   end
 end
 
-template "/usr/local/bin/automongobackup" do
-  source "automongobackup.sh.erb"
+cookbook_file "/usr/local/bin/automongobackup" do
+  source "automongobackup.sh"
   owner "root"
   group "root"
   mode "0755"

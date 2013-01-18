@@ -18,5 +18,6 @@ else
 end
 
 default[:mongodb][:backup][:dir] = "/var/backups/mongodb"
+default[:mongodb][:backup][:mail_content] = "stdout"
 default[:mongodb][:backup][:oplog] = true
 default[:mongodb][:backup][:replica_on_slave] = true
