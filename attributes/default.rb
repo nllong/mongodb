@@ -11,10 +11,12 @@ if platform?("redhat", "centos", "fedora")
   default[:mongodb][:server][:config_file] = "/etc/mongod.conf"
   default[:mongodb][:server][:log_file] = "/var/log/mongo/mongod.log"
   default[:mongodb][:server][:db_dir] = "/var/lib/mongo"
+  default[:mongodb][:server][:pid_file] = "/var/run/mongodb/mongod.pid"
 else
   default[:mongodb][:server][:config_file] = "/etc/mongodb.conf"
   default[:mongodb][:server][:log_file] = "/var/log/mongodb/mongodb.log"
   default[:mongodb][:server][:db_dir] = "/var/lib/mongodb"
+  default[:mongodb][:server][:pid_file] = "/var/run/mongodb/mongod.pid"
 end
 
 default[:mongodb][:backup][:dir] = "/var/backups/mongodb"

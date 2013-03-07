@@ -12,6 +12,12 @@ fork = true
 
 dbpath=<%= node[:mongodb][:server][:db_dir] %>
 
+# location of pidfile
+pidfilepath=<%= node[:mongodb][:server][:pid_file] %>
+
+# Disables write-ahead journaling
+# nojournal = true
+
 # Enables periodic logging of CPU utilization and I/O wait
 #cpu = true
 
@@ -35,10 +41,7 @@ dbpath=<%= node[:mongodb][:server][:db_dir] %>
 #   2=R
 #   3=both
 #   7=W+some reads
-#oplog = 0
-
-# Diagnostic/debugging option
-#nocursors = true
+#diaglog = 0
 
 # Ignore query hints
 #nohints = true

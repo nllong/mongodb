@@ -8,6 +8,7 @@
 #
 
 include_recipe "iptables::mongodb"
+include_recipe "logrotate"
 include_recipe "yum::10gen"
 include_recipe "mongodb::client"
 
@@ -47,4 +48,11 @@ service "mongodb" do
 
   supports :status => true, :restart => true
   action [:enable, :start]
+end
+
+logrotate_app "mongodb" do
+  path ["/var/log/mongo/mongod.log"]
+  frequency "daily"
+  rotate 90
+  create "640 mongod mongod"
 end
