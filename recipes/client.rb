@@ -7,7 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "yum::10gen"
-
-package "mongo-10gen" do
+if platform?("redhat", "centos", "fedora")
+  include_recipe "yum::10gen"
+  package "mongo-10gen" do
+  end
+elsif platform?("debian")
+  include_recipe "apt"
 end
+
